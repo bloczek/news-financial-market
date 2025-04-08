@@ -1,4 +1,4 @@
-from webscrapping_modules.yahoo_news import YahooNewsScraper, YahooMarketsScraper
+from webscrapping_modules.yahoo_finance.yahoo_news import YahooNewsScraper, YahooMarketsScraper
 
 if __name__ == "__main__":
     scraper_news = YahooNewsScraper()

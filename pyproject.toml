@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "news-api-project"
+name = "news-financial-market"
 version = "0.1.0"
 description = ""
-authors = ["Kuba <a5h3k14s15@gmail.com>"]
+authors = ["bloczek"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 pandas = "^2.2.3"
 polygon-api-client = "^1.14.4"
 python-dotenv = "^1.1.0"
@@ -14,6 +15,7 @@ eventregistry = "^9.1"
 requests = "^2.32.3"
 beautifulsoup4 = "^4.13.3"
 tabulate = "^0.9.0"
+pytest = "^7.4.0"
 
 
 [build-system]

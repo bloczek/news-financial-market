@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "news-financial-market"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

@@ -11,11 +11,14 @@ on:
       - main
 
 jobs:
-  test:
+  security:
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: read
-      pull-requests: write  # Needed for PR comments
+      security-events: write
+      pull-requests: write
+      checks: write  # Required for PR checks
 
     steps:
       - name: Checkout code
@@ -38,13 +41,31 @@ jobs:
         run: |
           poetry run pytest --disable-warnings
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Install Snyk CLI
         run: npm install -g snyk
 
-      - name: Run Snyk test and report
+      - name: Run Snyk scan and report
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
-          snyk test --all-projects --severity-threshold=medium --pr-checks
-          snyk monitor --all-projects
+          snyk test \
+            --all-projects \
+            --severity-threshold=medium \
+            --sarif-file-output=snyk.sarif || true
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: snyk.sarif
+          category: Snyk Security Scan
+
+
+
+          

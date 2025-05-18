@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from abstract.base import BaseScraper
+from src.abstract.base import BaseScraper
 from tabulate import tabulate
 
 class YahooNewsScraper(BaseScraper):
@@ -24,7 +24,8 @@ class YahooNewsScraper(BaseScraper):
         """
         soup = BeautifulSoup(html, "html.parser")
         items = []
-        divs = soup.find_all("div", class_="content yf-82qtw3")
+        # TODO Find a way to update the class name, becasue the name is changing
+        divs = soup.find_all("div", class_="content yf-1y7058a")
         
         for div in divs:
             a_tag = div.find("a", href=True)

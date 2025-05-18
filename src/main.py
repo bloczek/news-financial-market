@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from webscrapping_modules.yahoo_finance.yahoo_news import YahooNewsScraper, YahooMarketsScraper
 
 if __name__ == "__main__":

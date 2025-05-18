@@ -12,7 +12,7 @@
     // "forwardPorts": [],
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "pip3 install poetry && cd news-financial-market && poetry lock && poetry install",
+    "postCreateCommand": "pip3 install poetry && poetry lock && poetry install",
 
     // Configure tool-specific properties.
     "customizations": {
@@ -23,10 +23,10 @@
                             "SonarSource.sonarlint-vscode",
                             "ms-python.python",
                             "ms-python.vscode-pylance",
-                            "ms-toolsai.jupyter",
+                            //"ms-toolsai.jupyter",
                             "eamodio.gitlens",
-                            "esbenp.prettier-vscode",
-                            "streetsidesoftware.code-spell-checker"
+                            "esbenp.prettier-vscode"
+                            //"streetsidesoftware.code-spell-checker"
             ]
         }
     }

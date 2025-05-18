@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
 import requests
+from abc import ABC, abstractmethod
 
 class BaseScraper(ABC):
     """

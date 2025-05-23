@@ -67,6 +67,8 @@ jobs:
           category: Snyk Security Scan
   
   code-quality:
+
+    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,6 +78,12 @@ jobs:
         with:
           python-version: '3.12'
           
+      - name: Install Poetry
+        run: |
+          pip install --user poetry
+          echo "PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
+          poetry --version    
+
       # - name: Install dependencies
       #   run: |
       #     pip install flake8 black mypy

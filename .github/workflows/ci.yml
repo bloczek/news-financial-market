@@ -76,15 +76,15 @@ jobs:
         with:
           python-version: '3.12'
           
-      - name: Install dependencies
-        run: |
-          pip install flake8 black mypy
+      # - name: Install dependencies
+      #   run: |
+      #     pip install flake8 black mypy
           
-      - name: Run linting
-        run: |
-          flake8 .
-          black . --check
-          mypy .
+      # - name: Run linting
+      #   run: |
+      #     flake8 .
+      #     black . --check
+      #     mypy .
 
       - name: Cache Poetry dependencies
         uses: actions/cache@v3

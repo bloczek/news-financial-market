@@ -109,11 +109,11 @@ jobs:
         run: |
           poetry run pytest --cov=./ --cov-report=xml
           
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./coverage.xml
-          fail_ci_if_error: true
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     files: ./coverage.xml
+      #     fail_ci_if_error: true
 
   release:
     needs: [security, code-quality]
